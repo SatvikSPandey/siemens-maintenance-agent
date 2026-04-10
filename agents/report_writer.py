@@ -1,8 +1,17 @@
 from langchain_ollama import ChatOllama
 from langchain_cohere import ChatCohere
 from langchain_core.messages import HumanMessage, AIMessage
+import os
 from tools.report_tools import generate_work_order
-from config import OLLAMA_MODEL, OLLAMA_BASE_URL, COHERE_API_KEY, COHERE_LLM_MODEL, USE_OLLAMA
+from config import OLLAMA_MODEL, OLLAMA_BASE_URL, COHERE_LLM_MODEL, USE_OLLAMA
+
+
+def get_cohere_key():
+    try:
+        import streamlit as st
+        return st.secrets["COHERE_API_KEY"]
+    except:
+        return os.getenv("COHERE_API_KEY")
 
 
 def report_writer_agent(state: dict) -> dict:
@@ -24,7 +33,7 @@ def report_writer_agent(state: dict) -> dict:
         )
     else:
         llm = ChatCohere(
-            cohere_api_key=COHERE_API_KEY,
+            cohere_api_key=get_cohere_key(),
             model=COHERE_LLM_MODEL,
             temperature=0.1
         )
