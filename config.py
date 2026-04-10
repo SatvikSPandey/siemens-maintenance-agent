@@ -31,8 +31,8 @@ USE_OLLAMA = is_ollama_running()
 
 try:
     import streamlit as st
-    COHERE_API_KEY = st.secrets.get("COHERE_API_KEY") or os.getenv("COHERE_API_KEY")
-except:
+    COHERE_API_KEY = st.secrets["COHERE_API_KEY"]
+except Exception:
     COHERE_API_KEY = os.getenv("COHERE_API_KEY")
 COHERE_EMBEDDING_MODEL = "embed-english-v3.0"
 
