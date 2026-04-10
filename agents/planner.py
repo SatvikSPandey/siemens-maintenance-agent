@@ -1,17 +1,25 @@
 from langchain_ollama import ChatOllama
+from langchain_cohere import ChatCohere
 from langchain_core.messages import HumanMessage, AIMessage
-from config import OLLAMA_MODEL, OLLAMA_BASE_URL
+from config import OLLAMA_MODEL, OLLAMA_BASE_URL, COHERE_API_KEY, COHERE_LLM_MODEL, USE_OLLAMA
 
 
 def planner_agent(state: dict) -> dict:
     equipment_id = state["equipment_id"]
     symptoms = state["symptoms"]
 
-    llm = ChatOllama(
-        model=OLLAMA_MODEL,
-        base_url=OLLAMA_BASE_URL,
-        temperature=0.1
-    )
+    if USE_OLLAMA:
+        llm = ChatOllama(
+            model=OLLAMA_MODEL,
+            base_url=OLLAMA_BASE_URL,
+            temperature=0.1
+        )
+    else:
+        llm = ChatCohere(
+            cohere_api_key=COHERE_API_KEY,
+            model=COHERE_LLM_MODEL,
+            temperature=0.1
+        )
 
     prompt = f"""You are a maintenance planning expert.
 

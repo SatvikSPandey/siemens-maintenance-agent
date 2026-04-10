@@ -3,6 +3,7 @@ venv/
 
 # Environment variables - contains API keys
 .env
+.streamlit/secrets.toml
 
 # Python cache
 __pycache__/

@@ -16,7 +16,24 @@ CHECKPOINT_DB_PATH = DATA_DIR / "checkpoints.db"
 OLLAMA_MODEL = "llama3"
 OLLAMA_BASE_URL = "http://localhost:11434"
 
-COHERE_API_KEY = os.getenv("COHERE_API_KEY")
+COHERE_LLM_MODEL = "command-r"
+
+import socket
+def is_ollama_running():
+    try:
+        sock = socket.create_connection(("localhost", 11434), timeout=2)
+        sock.close()
+        return True
+    except:
+        return False
+
+USE_OLLAMA = is_ollama_running()
+
+try:
+    import streamlit as st
+    COHERE_API_KEY = st.secrets.get("COHERE_API_KEY") or os.getenv("COHERE_API_KEY")
+except:
+    COHERE_API_KEY = os.getenv("COHERE_API_KEY")
 COHERE_EMBEDDING_MODEL = "embed-english-v3.0"
 
 CHUNK_SIZE = 1000
