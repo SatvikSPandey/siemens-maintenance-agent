@@ -18,17 +18,7 @@ OLLAMA_BASE_URL = "http://localhost:11434"
 
 COHERE_LLM_MODEL = "command-r-plus-08-2024"
 
-import socket
-def is_ollama_running():
-    try:
-        sock = socket.create_connection(("localhost", 11434), timeout=2)
-        sock.close()
-        return True
-    except:
-        return False
-
-IS_STREAMLIT_CLOUD = os.getenv("HOME") == "/home/adminuser"
-USE_OLLAMA = False if IS_STREAMLIT_CLOUD else is_ollama_running()
+USE_OLLAMA = os.getenv("USE_OLLAMA", "false").lower() == "true"
 
 try:
     import streamlit as st
