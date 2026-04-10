@@ -1,6 +1,16 @@
+import os
 from langchain_ollama import ChatOllama
+from langchain_cohere import ChatCohere
 from langchain_core.messages import HumanMessage, AIMessage
-from config import OLLAMA_MODEL, OLLAMA_BASE_URL
+from config import OLLAMA_MODEL, OLLAMA_BASE_URL, COHERE_LLM_MODEL, USE_OLLAMA
+
+
+def get_cohere_key():
+    try:
+        import streamlit as st
+        return st.secrets["COHERE_API_KEY"]
+    except:
+        return os.getenv("COHERE_API_KEY")
 
 
 def diagnostic_agent(state: dict) -> dict:
@@ -24,11 +34,18 @@ Their feedback: {human_feedback}
 Please reconsider your diagnosis based on this feedback.
 """
 
-    llm = ChatOllama(
-        model=OLLAMA_MODEL,
-        base_url=OLLAMA_BASE_URL,
-        temperature=0.1
-    )
+    if USE_OLLAMA:
+        llm = ChatOllama(
+            model=OLLAMA_MODEL,
+            base_url=OLLAMA_BASE_URL,
+            temperature=0.1
+        )
+    else:
+        llm = ChatCohere(
+            cohere_api_key=get_cohere_key(),
+            model=COHERE_LLM_MODEL,
+            temperature=0.1
+        )
 
     prompt = f"""You are an expert industrial equipment diagnostic engineer.
 
