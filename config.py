@@ -27,7 +27,8 @@ def is_ollama_running():
     except:
         return False
 
-USE_OLLAMA = is_ollama_running()
+IS_STREAMLIT_CLOUD = os.getenv("HOME") == "/home/adminuser"
+USE_OLLAMA = False if IS_STREAMLIT_CLOUD else is_ollama_running()
 
 try:
     import streamlit as st
