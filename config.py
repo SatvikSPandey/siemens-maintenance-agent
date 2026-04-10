@@ -16,7 +16,7 @@ CHECKPOINT_DB_PATH = DATA_DIR / "checkpoints.db"
 OLLAMA_MODEL = "llama3"
 OLLAMA_BASE_URL = "http://localhost:11434"
 
-COHERE_LLM_MODEL = "command-r-plus"
+COHERE_LLM_MODEL = "command-r-plus-08-2024"
 
 import socket
 def is_ollama_running():
