@@ -1,0 +1,21 @@
+# Virtual environment
+venv/
+
+# Environment variables - contains API keys
+.env
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Database files
+*.db
+
+# Output reports
+output/
+
+# FAISS vector store
+data/vector_store/
+
+# VS Code settings
+.vscode/

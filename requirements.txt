@@ -1,0 +1,13 @@
+langgraph
+langchain
+langchain-core
+langchain-community
+langchain-ollama
+langchain-cohere
+faiss-cpu
+pdfplumber
+pandas
+openpyxl
+pydantic
+python-dotenv
+streamlit

@@ -1,0 +1,16 @@
+CENTRIFUGAL PUMP MAINTENANCE MANUAL
+
+VIBRATION ISSUES:
+Excessive vibration in centrifugal pumps is commonly caused by bearing wear,
+misalignment, or cavitation. Bearings should be inspected every 6 months.
+Replace bearings if vibration exceeds 4.5mm/s. Check shaft alignment using
+a dial indicator. Cavitation occurs when inlet pressure drops below vapor pressure.
+
+TEMPERATURE ISSUES:
+High operating temperature indicates bearing failure or inadequate lubrication.
+Normal operating temperature range is 40-80 degrees Celsius. If temperature
+exceeds 90 degrees, shut down immediately and inspect bearings and seals.
+
+ROUTINE MAINTENANCE:
+Change oil every 2000 operating hours. Inspect seals every 6 months.
+Clean strainer monthly. Check coupling alignment quarterly.
