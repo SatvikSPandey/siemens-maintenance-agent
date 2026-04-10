@@ -75,7 +75,7 @@ def get_equipment_history(equipment_id: str) -> list:
     conn.close()
 
     if not rows:
-        return [{"message": f"No history found for equipment ID: {equipment_id}"}]
+        return [{"date": "N/A", "event_type": "none", "description": f"No history found for {equipment_id}", "technician": "N/A"}]
 
     return [
         {
