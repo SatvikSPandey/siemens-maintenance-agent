@@ -7,8 +7,8 @@ from langgraph.types import Command
 from graph.graph_builder import build_graph
 from graph.state import get_initial_state
 
-st.set_page_config(page_title="Siemens Maintenance Agent", page_icon="🔧")
-st.title("🔧 Siemens Equipment Maintenance Agent")
+st.set_page_config(page_title="Industrial Equipment Maintenance Agent", page_icon="🔧")
+st.title("🔧 Industrial Equipment Maintenance Agent")
 
 if "graph" not in st.session_state:
     st.session_state.graph = build_graph()
