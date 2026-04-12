@@ -1,4 +1,4 @@
-# Siemens Equipment Maintenance Agent
+# Industrial Equipment Maintenance Agent
 ### Multi-Agent LangGraph System for Industrial Fault Diagnosis
 
 A production-grade multi-agent AI system built with LangGraph that diagnoses industrial equipment faults, retrieves relevant maintenance knowledge, and generates structured work orders — with a human-in-the-loop approval checkpoint.
@@ -80,4 +80,5 @@ The system uses LangGraph's StateGraph where all agents share a single typed sta
 ---
 
 Built by Satvik Pandey — AI Engineer | Python Developer | LangGraph
+Targeted at industrial automation and manufacturing AI roles.
 
